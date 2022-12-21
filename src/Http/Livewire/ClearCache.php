@@ -2,13 +2,23 @@
 
 namespace CmsMulti\FilamentClearCache\Http\Livewire;
 
+use Filament\Facades\Filament;
 use Filament\Notifications\Notification;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Artisan;
 use Livewire\Component;
 
 class ClearCache extends Component
 {
+    public function mount(): void
+    {
+        throw_if(
+            !Filament::auth()->check(),
+            AuthenticationException::class
+        );
+    }
+
     public function clear(): void
     {
         Artisan::call('filament-clear-cache');
