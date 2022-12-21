@@ -14,7 +14,7 @@ class ClearCache extends Component
     public function mount(): void
     {
         throw_if(
-            !Filament::auth()->check(),
+            ! Filament::auth()->check(),
             AuthenticationException::class
         );
     }
