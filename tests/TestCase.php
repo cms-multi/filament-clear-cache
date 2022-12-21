@@ -5,7 +5,6 @@ namespace CmsMulti\FilamentClearCache\Tests;
 use CmsMulti\FilamentClearCache\FilamentClearCacheServiceProvider;
 use Filament\FilamentServiceProvider;
 use Filament\Notifications\NotificationsServiceProvider;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
