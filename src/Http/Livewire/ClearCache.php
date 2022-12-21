@@ -14,7 +14,7 @@ class ClearCache extends Component
         Artisan::call('filament-clear-cache');
 
         Notification::make()
-            ->title('Cache clear successfully')
+            ->title(__('filament-clear-cache::general.success'))
             ->success()
             ->send();
     }

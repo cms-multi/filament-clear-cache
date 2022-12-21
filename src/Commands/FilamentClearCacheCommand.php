@@ -17,7 +17,7 @@ class FilamentClearCacheCommand extends Command
         $this->call('cache:clear');
         $this->call('view:clear');
 
-        $this->comment('All done');
+        $this->comment(__('filament-clear-cache::general.success'));
 
         return self::SUCCESS;
     }
