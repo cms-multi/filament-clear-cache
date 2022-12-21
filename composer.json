@@ -1,22 +1,24 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "cms-multi/filament-clear-cache",
+    "description": "Clear your cache with the click of a delete cache button",
     "keywords": [
-        ":vendor_name",
+        "filament",
         "laravel",
-        ":package_slug"
+        "filament-clear-cache"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/cms-multi/filament-clear-cache",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "howdu",
+            "email": "cms.multi2@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.1",
+        "filament/filament": "^2.0",
+        "filament/notifications": "^2.0",
         "spatie/laravel-package-tools": "^1.13.0",
         "illuminate/contracts": "^9.0"
     },
@@ -35,13 +37,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "CmsMulti\\FilamentClearCache\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "CmsMulti\\FilamentClearCache\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -61,11 +62,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
-            ],
-            "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
-            }
+                "CmsMulti\\FilamentClearCache\\FilamentClearCacheServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",
