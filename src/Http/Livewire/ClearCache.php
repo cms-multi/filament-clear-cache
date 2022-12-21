@@ -2,9 +2,9 @@
 
 namespace CmsMulti\FilamentClearCache\Http\Livewire;
 
+use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Artisan;
-use Filament\Notifications\Notification;
 use Livewire\Component;
 
 class ClearCache extends Component
