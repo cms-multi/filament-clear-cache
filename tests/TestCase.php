@@ -3,7 +3,10 @@
 namespace CmsMulti\FilamentClearCache\Tests;
 
 use CmsMulti\FilamentClearCache\FilamentClearCacheServiceProvider;
+use Filament\FilamentServiceProvider;
+use Filament\Notifications\NotificationsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -11,17 +14,21 @@ class TestCase extends Orchestra
     protected function setUp(): void
     {
         parent::setUp();
-
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'CmsMulti\\FilamentClearCache\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
     }
 
     protected function getPackageProviders($app)
     {
-        return [
+        $packageProviders = [
+            LivewireServiceProvider::class,
+            FilamentServiceProvider::class,
             FilamentClearCacheServiceProvider::class,
         ];
+
+        if (class_exists(NotificationsServiceProvider::class)) {
+            $packageProviders[] = NotificationsServiceProvider::class;
+        }
+
+        return $packageProviders;
     }
 
     public function getEnvironmentSetUp($app)
