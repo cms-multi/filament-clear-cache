@@ -1,6 +1,6 @@
 {
     "name": "cms-multi/filament-clear-cache",
-    "description": "Clear your cache with the click of a delete cache button",
+    "description": "Clear your cache easily from within filament",
     "keywords": [
         "filament",
         "laravel",
