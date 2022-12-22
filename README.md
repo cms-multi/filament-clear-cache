@@ -7,6 +7,8 @@
 
 Add a button to easily clear the cache from your filament admin
 
+<img width="431" alt="Filament Admin Toolbar Header" src="https://user-images.githubusercontent.com/533658/209122318-a551e946-27c1-437f-b681-1e62b2f65b6d.png">
+
 ## Installation
 
 You can install the package via composer:
