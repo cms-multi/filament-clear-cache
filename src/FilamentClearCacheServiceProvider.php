@@ -26,6 +26,13 @@ class FilamentClearCacheServiceProvider extends PackageServiceProvider
         });
     }
 
+    public function packageRegistered(): void
+    {
+        $this->app->scoped(FilamentClearCacheManager::class);
+
+        parent::packageRegistered();
+    }
+
     public function configurePackage(Package $package): void
     {
         /*

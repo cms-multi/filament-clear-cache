@@ -65,7 +65,10 @@
         "laravel": {
             "providers": [
                 "CmsMulti\\FilamentClearCache\\FilamentClearCacheServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "FilamentClearCache": "CmsMulti\\FilamentClearCache\\Facades\\FilamentClearCache"
+            }
         }
     },
     "minimum-stability": "dev",
