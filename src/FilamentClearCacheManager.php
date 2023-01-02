@@ -3,7 +3,6 @@
 namespace CmsMulti\FilamentClearCache;
 
 use Closure;
-use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
 
 class FilamentClearCacheManager
@@ -12,7 +11,7 @@ class FilamentClearCacheManager
 
     protected array $commands = [];
 
-    public function addCommand(string | Closure $command): static
+    public function addCommand(string|Closure $command): static
     {
         $this->commands[] = $command;
 
