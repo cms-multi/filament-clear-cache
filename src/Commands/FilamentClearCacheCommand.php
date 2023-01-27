@@ -20,7 +20,9 @@ class FilamentClearCacheCommand extends Command
         foreach ($commands as $command) {
             if (is_string($command)) {
                 $this->call($command);
-            } elseif (is_callable($command)) {
+            } elseif (is_array($command)) {
+                $this->call($command[0], $command[1]);
+            } else {
                 call_user_func($command);
             }
         }
