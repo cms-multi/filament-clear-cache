@@ -2,6 +2,10 @@
 
 All notable changes to `filament-clear-cache` will be documented in this file.
 
+## v1.0.5 - 2023-02-07
+
+Fix adding custom command with params.
+
 ## v1.0.1 - 2023-01-02
 
 Register custom commands.
