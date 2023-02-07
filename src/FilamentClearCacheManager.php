@@ -13,7 +13,7 @@ class FilamentClearCacheManager
 
     public function addCommand(string|Closure $command, array $params = []): static
     {
-        $this->commands[] = [$command, $params];
+        $this->commands[] = $params ? [$command, $params] : $command;
 
         return $this;
     }
