@@ -24,7 +24,7 @@ class ClearCache extends Component
         );
 
         if ($changes_count = config('filament-clear-cache.changes_count')) {
-            $this->cacheChangesCount = (int)Cache::get($changes_count, 0);
+            $this->cacheChangesCount = (int) Cache::get($changes_count, 0);
         }
     }
 

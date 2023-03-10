@@ -5,5 +5,5 @@ return [
         'optimize:clear',
         'optimize',
     ],
-    'changes_count' => 'session_key'
+    'changes_count' => 'session_key',
 ];
