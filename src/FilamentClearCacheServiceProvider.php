@@ -44,6 +44,7 @@ class FilamentClearCacheServiceProvider extends PackageServiceProvider
             ->name('filament-clear-cache')
             ->hasViews()
             ->hasTranslations()
+            ->hasConfigFile('filament-clear-cache')
             ->hasCommand(FilamentClearCacheCommand::class);
     }
 }
