@@ -7,7 +7,8 @@
 
 Add a button to easily clear the cache from your filament admin.
 
-<img width="431" alt="Filament Admin Toolbar Header" src="https://user-images.githubusercontent.com/533658/209122318-a551e946-27c1-437f-b681-1e62b2f65b6d.png">
+<img width="449" alt="Filament Admin Toolbar Header" src="https://user-images.githubusercontent.com/533658/224348501-81f91bde-181c-454a-aafc-e633c1e7ae6f.png">
+
 
 ## Installation
 
@@ -30,6 +31,11 @@ public function boot()
 {
     FilamentClearCache::addCommand('page-cache:clear');
 }
+```
+
+Livewire event for incrementing the total number. 
+```php
+$livewire->emit('clearCacheIncrement');
 ```
 
 ## Testing
