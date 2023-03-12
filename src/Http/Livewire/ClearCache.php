@@ -2,11 +2,11 @@
 
 namespace CmsMulti\FilamentClearCache\Http\Livewire;
 
+use CmsMulti\FilamentClearCache\Jobs\ClearCacheJob;
 use Filament\Facades\Filament;
 use Filament\Notifications\Notification;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 
@@ -30,14 +30,14 @@ class ClearCache extends Component
 
     public function clear(): \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
     {
-        Artisan::call('filament-clear-cache');
-
         $this->cacheChangesCount = 0;
 
         Notification::make()
             ->title(__('filament-clear-cache::general.success'))
             ->success()
             ->send();
+
+        ClearCacheJob::dispatchAfterResponse();
 
         // Refresh page to ensure new cache
         return redirect(request()->header('Referer'));

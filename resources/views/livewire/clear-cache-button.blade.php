@@ -1,4 +1,8 @@
-<button wire:click="clear" type="button" color="secondary"
+<button
+    wire:click="clear"
+    wire:loading.attr="disabled"
+    type="button"
+    color="secondary"
     @class([
         'flex flex-shrink-0 w-10 h-10 rounded-full bg-gray-200 items-center justify-center relative',
         'dark:bg-gray-900' => config('filament.dark_mode'),
