@@ -45,6 +45,7 @@ class FilamentClearCacheServiceProvider extends PackageServiceProvider
             ->hasViews()
             ->hasTranslations()
             ->hasConfigFile('filament-clear-cache')
+            ->hasRoute('web')
             ->hasCommand(FilamentClearCacheCommand::class);
     }
 }

@@ -2,7 +2,6 @@
 
 namespace CmsMulti\FilamentClearCache\Http\Livewire;
 
-use CmsMulti\FilamentClearCache\Jobs\ClearCacheJob;
 use Filament\Facades\Filament;
 use Filament\Notifications\Notification;
 use Illuminate\Auth\AuthenticationException;
@@ -32,15 +31,8 @@ class ClearCache extends Component
     {
         $this->cacheChangesCount = 0;
 
-        Notification::make()
-            ->title(__('filament-clear-cache::general.success'))
-            ->success()
-            ->send();
-
-        ClearCacheJob::dispatchAfterResponse();
-
         // Refresh page to ensure new cache
-        return redirect(request()->header('Referer'));
+        return redirect(route('filament.clear-cache'), ['redirect' => request()->header('Referer')]);
     }
 
     public function incrementChangesCount()
