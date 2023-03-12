@@ -14,7 +14,7 @@ class FilamentClearCacheCommand extends Command
 
     public function handle(): int
     {
-        $default_commands = config('filment-clear-cache.default_commands', []);
+        $default_commands = config('filament-clear-cache.default_commands', []);
 
         foreach ($default_commands as $default_command) {
             $this->call($default_command);
