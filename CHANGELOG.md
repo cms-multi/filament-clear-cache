@@ -2,6 +2,10 @@
 
 All notable changes to `filament-clear-cache` will be documented in this file.
 
+## v1.0.7 - 2023-03-12
+
+Bug fix
+
 ## v.1.0.6 - 2023-03-10
 
 - Fix fixe issue with Livewire cached resources not updating after calling `optimize`. Perform a full redirect after clearing cache.
