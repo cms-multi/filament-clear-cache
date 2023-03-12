@@ -19,7 +19,7 @@ class ClearCacheController extends BaseController
 
         if (! $redirect_url = request('redirect')) {
             $domain = config('filament.domain') ?: config('app.url');
-            $redirect_url = $domain . '/' . config('filament.path');
+            $redirect_url = $domain.'/'.config('filament.path');
         }
 
         // Redirect to ensure Livewires cache is updated

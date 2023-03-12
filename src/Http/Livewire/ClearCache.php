@@ -3,7 +3,6 @@
 namespace CmsMulti\FilamentClearCache\Http\Livewire;
 
 use Filament\Facades\Filament;
-use Filament\Notifications\Notification;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
