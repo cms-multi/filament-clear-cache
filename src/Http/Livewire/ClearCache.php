@@ -16,6 +16,8 @@ class ClearCache extends Component
 
     protected $listeners = ['clearCacheIncrement' => 'incrementChangesCount'];
 
+    public bool $visible;
+
     public function mount(): void
     {
         throw_if(
@@ -26,7 +28,26 @@ class ClearCache extends Component
         if ($changes_count = config('filament-clear-cache.changes_count')) {
             $this->cacheChangesCount = (int) Cache::get($changes_count, 0);
         }
+
+        $this->visible = $this->getVisibility();
     }
+
+    public function getVisibility() : bool
+	{
+		if (($user = auth()->user()) === null) {
+			return false;
+		}
+
+		if ($permissions = config('filament-clear-cache.permissions')) {
+			return $user->can($permissions);
+		}
+
+		if (method_exists($user, 'hasRole') && $role = config('filament-clear-cache.role')) {
+			return $user->hasRole($role);
+		}
+
+		return true;
+	}
 
     public function clear(): \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
     {

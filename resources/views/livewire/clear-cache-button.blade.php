@@ -1,4 +1,6 @@
 <button
+    x-data="{{ json_encode(['visible' => $visible]) }}"
+	x-show="visible"
     wire:click="clear"
     wire:loading.attr="disabled"
     type="button"
