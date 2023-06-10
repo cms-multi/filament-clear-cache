@@ -2,6 +2,22 @@
 
 All notable changes to `filament-clear-cache` will be documented in this file.
 
+## 1.0.9 - 2023-06-10
+
+### What's Changed
+
+- Bump aglipanci/laravel-pint-action from 2.1.0 to 2.2.0 by @dependabot in https://github.com/cms-multi/filament-clear-cache/pull/6
+- Bump dependabot/fetch-metadata from 1.3.6 to 1.4.0 by @dependabot in https://github.com/cms-multi/filament-clear-cache/pull/7
+- Bump aglipanci/laravel-pint-action from 2.2.0 to 2.3.0 by @dependabot in https://github.com/cms-multi/filament-clear-cache/pull/9
+- Bump dependabot/fetch-metadata from 1.4.0 to 1.5.1 by @dependabot in https://github.com/cms-multi/filament-clear-cache/pull/8
+- Add visible config by @a21ns1g4ts in https://github.com/cms-multi/filament-clear-cache/pull/10
+
+### New Contributors
+
+- @a21ns1g4ts made their first contribution in https://github.com/cms-multi/filament-clear-cache/pull/10
+
+**Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/1.0.8...1.0.9
+
 ## v1.0.8 - 2023-03-12
 
 **Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/1.0.7...1.0.8
