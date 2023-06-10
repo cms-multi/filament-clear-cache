@@ -32,22 +32,22 @@ class ClearCache extends Component
         $this->visible = $this->getVisibility();
     }
 
-    public function getVisibility() : bool
-	{
-		if (($user = auth()->user()) === null) {
-			return false;
-		}
+    public function getVisibility(): bool
+    {
+        if (($user = auth()->user()) === null) {
+            return false;
+        }
 
-		if ($permissions = config('filament-clear-cache.permissions')) {
-			return $user->can($permissions);
-		}
+        if ($permissions = config('filament-clear-cache.permissions')) {
+            return $user->can($permissions);
+        }
 
-		if (method_exists($user, 'hasRole') && $role = config('filament-clear-cache.role')) {
-			return $user->hasRole($role);
-		}
+        if (method_exists($user, 'hasRole') && $role = config('filament-clear-cache.role')) {
+            return $user->hasRole($role);
+        }
 
-		return true;
-	}
+        return true;
+    }
 
     public function clear(): \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
     {
