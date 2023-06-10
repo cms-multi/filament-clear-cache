@@ -6,4 +6,6 @@ return [
         'optimize',
     ],
     'changes_count' => 'session_key',
+	'permissions' => false,
+	'role' => false,
 ];
