@@ -6,7 +6,6 @@ use CmsMulti\FilamentClearCache\Http\Livewire\ClearCache;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\View\View;
 use Livewire\Livewire;
 
 class FilamentClearCachePlugin implements Plugin
@@ -39,7 +38,6 @@ class FilamentClearCachePlugin implements Plugin
             hook: fn (): string => Blade::render('@livewire(\'filament-clear-cache::clear-cache-button\')'),
         );
     }
-
 
     public function boot(Panel $panel): void
     {

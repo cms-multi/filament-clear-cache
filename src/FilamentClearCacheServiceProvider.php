@@ -3,10 +3,6 @@
 namespace CmsMulti\FilamentClearCache;
 
 use CmsMulti\FilamentClearCache\Commands\FilamentClearCacheCommand;
-use CmsMulti\FilamentClearCache\Http\Livewire\ClearCache;
-use Filament\Facades\Filament;
-use Illuminate\View\View;
-use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
