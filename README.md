@@ -10,12 +10,33 @@ Add a button to easily clear the cache from your filament admin.
 <img width="449" alt="Filament Admin Toolbar Header" src="https://user-images.githubusercontent.com/533658/224348501-81f91bde-181c-454a-aafc-e633c1e7ae6f.png">
 
 
+#### Compatibility
+
+| Peek | Status | Filament | PHP |
+|------|----------|----------|--------|
+| [1.x](https://github.com/cms-multi/filament-clear-cache/tree/1.x) | Current | ^1.0     | ^8.0 |
+| [2.x](https://github.com/cms-multi/filament-clear-cache/tree/2.x) | Beta ✨️ | ^2.0     | ^8.1 |
+
 ## Installation
 
 You can install the package via composer:
 
 ```bash
 composer require cms-multi/filament-clear-cache
+```
+
+### Registering the plugin
+
+```php
+use CmsMulti\FilamentClearCache\FilamentClearCachePlugin;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        ->plugins([
+            FilamentClearCachePlugin::make(),
+        ])
+}
 ```
 
 ## Customizing

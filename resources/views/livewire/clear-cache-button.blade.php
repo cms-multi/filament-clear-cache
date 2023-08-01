@@ -5,16 +5,13 @@
     wire:loading.attr="disabled"
     type="button"
     color="secondary"
-    @class([
-        'flex flex-shrink-0 w-10 h-10 rounded-full bg-gray-200 items-center justify-center relative',
-        'dark:bg-gray-900' => config('filament.dark_mode'),
-    ])
+    class="flex flex-shrink-0 w-10 h-10 rounded-full bg-gray-200 items-center justify-center relative dark:bg-gray-900"
     x-tooltip.raw="{{ __('filament-clear-cache::general.clear_cache') }}"
     style="margin-inline-start: 1rem;border-radius:100%;border:none"
 >
     <x-heroicon-s-trash wire:loading.remove.delay class="w-5 h-5"/>
 
-    <x-filament-support::loading-indicator x-cloak wire:loading.delay wire:target="clear" class="filament-button-icon w-5 h-5"/>
+    <x-filament::loading-indicator x-cloak wire:loading.delay wire:target="clear" class="filament-button-icon w-5 h-5"/>
 
     @if($cacheChangesCount)
         <span x-cloak
