@@ -2,6 +2,19 @@
 
 All notable changes to `filament-clear-cache` will be documented in this file.
 
+## 2.0.0 - 2023-08-01
+
+### What's Changed
+
+- Add support for Filament v3 by @howdu in https://github.com/cms-multi/filament-clear-cache/pull/13
+- Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/cms-multi/filament-clear-cache/pull/11
+
+### New Contributors
+
+- @howdu made their first contribution in https://github.com/cms-multi/filament-clear-cache/pull/13
+
+**Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/1.0.9...2.0.0
+
 ## 1.0.9 - 2023-06-10
 
 ### What's Changed
