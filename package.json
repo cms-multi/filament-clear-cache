@@ -1,0 +1,11 @@
+{
+    "private": true,
+    "scripts": {
+        "prettier": "npx prettier --write '**/*.{css,js,yml,blade.php}' '!**/dist' '!**/vendor'"
+    },
+    "devDependencies": {
+        "@shufo/prettier-plugin-blade": "^1.10.1",
+        "prettier": "^2.8.8",
+        "prettier-plugin-tailwindcss": "^0.1.13"
+    }
+}

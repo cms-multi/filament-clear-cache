@@ -18,6 +18,20 @@ You can install the package via composer:
 composer require cms-multi/filament-clear-cache
 ```
 
+### Registering the plugin
+
+```php
+use CmsMulti\FilamentClearCache\FilamentClearCachePlugin;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        ->plugins([
+            FilamentClearCachePlugin::make(),
+        ])
+}
+```
+
 ## Customizing
 
 Under the hood `optimize:clear` is called after clicking the button.

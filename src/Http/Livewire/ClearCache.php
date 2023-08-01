@@ -49,7 +49,7 @@ class ClearCache extends Component
         return true;
     }
 
-    public function clear(): \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+    public function clear()
     {
         $this->cacheChangesCount = 0;
 
@@ -61,7 +61,7 @@ class ClearCache extends Component
         ClearCacheJob::dispatchAfterResponse();
 
         // Refresh page to ensure new cache
-        return redirect(request()->header('Referer'));
+        return $this->redirect(request()->header('Referer'));
     }
 
     public function incrementChangesCount()

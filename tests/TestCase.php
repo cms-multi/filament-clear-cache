@@ -27,13 +27,13 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         $packageProviders = [
-            LivewireServiceProvider::class,
-            FilamentServiceProvider::class,
-            SupportServiceProvider::class,
-            FilamentClearCacheServiceProvider::class,
-            NotificationsServiceProvider::class,
-            BladeIconsServiceProvider::class,
             BladeHeroiconsServiceProvider::class,
+            BladeIconsServiceProvider::class,
+            FilamentClearCacheServiceProvider::class,
+            FilamentServiceProvider::class,
+            LivewireServiceProvider::class,
+            NotificationsServiceProvider::class,
+            SupportServiceProvider::class,
         ];
 
         return $packageProviders;
