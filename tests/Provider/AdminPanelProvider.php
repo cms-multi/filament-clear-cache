@@ -2,17 +2,7 @@
 
 namespace CmsMulti\FilamentClearCache\Tests\Provider;
 
-use Awcodes\Curator\CuratorPlugin;
-use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
-use CmsMulti\Admin\CmsMultiAdminPlugin;
-use CmsMulti\Admin\Facades\CmsMultiAdmin;
-use CmsMulti\Admin\Filament\Widgets\LatestMultiWidget;
-use CmsMulti\Admin\Filament\Widgets\PopularPagesChart;
-use CmsMulti\Admin\Filament\Widgets\PopularPagesTable;
-use CmsMulti\Admin\Filament\Widgets\VisitorsOverviewCards;
 use CmsMulti\FilamentClearCache\FilamentClearCachePlugin;
-use CmsMulti\System\Facades\CmsMultiSystem;
-use Filament\Forms\Components\Select;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -28,8 +18,6 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Illuminate\View\View;
-use RyanChandler\FilamentNavigation\FilamentNavigation;
 
 class AdminPanelProvider extends PanelProvider
 {

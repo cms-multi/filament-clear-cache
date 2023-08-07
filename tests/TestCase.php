@@ -32,21 +32,21 @@ class TestCase extends Orchestra
         $this->actingAs($this->adminUser);
     }
 
-protected function getPackageProviders($app)
-{
-    $packageProviders = [
-        BladeHeroiconsServiceProvider::class,
-        BladeIconsServiceProvider::class,
-        LivewireServiceProvider::class,
-        FilamentServiceProvider::class,
-        NotificationsServiceProvider::class,
-        SupportServiceProvider::class,
-        FilamentClearCacheServiceProvider::class,
-        AdminPanelProvider::class
-    ];
+    protected function getPackageProviders($app)
+    {
+        $packageProviders = [
+            BladeHeroiconsServiceProvider::class,
+            BladeIconsServiceProvider::class,
+            LivewireServiceProvider::class,
+            FilamentServiceProvider::class,
+            NotificationsServiceProvider::class,
+            SupportServiceProvider::class,
+            FilamentClearCacheServiceProvider::class,
+            AdminPanelProvider::class,
+        ];
 
-    return $packageProviders;
-}
+        return $packageProviders;
+    }
 
     /**
      * Set up the database.
