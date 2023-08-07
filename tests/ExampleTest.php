@@ -1,8 +1,8 @@
 <?php
 
 use CmsMulti\FilamentClearCache\Http\Livewire\ClearCache;
-use function Pest\Laravel\actingAs;
 use function Pest\Livewire\livewire;
+use function Pest\Laravel\actingAs;
 
 it('throws exception clearing cache without auth', function () {
     livewire(ClearCache::class)
@@ -10,7 +10,7 @@ it('throws exception clearing cache without auth', function () {
 })->throws(Exception::class);
 
 it('can clear cache with auth', function () {
-    actingAs($this->adminUser);
+    $this->actingAs($this->adminUser);
 
     livewire(ClearCache::class)
         ->call('clear')
