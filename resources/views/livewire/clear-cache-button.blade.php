@@ -7,7 +7,6 @@
     color="secondary"
     class="flex flex-shrink-0 w-10 h-10 rounded-full bg-gray-200 items-center justify-center relative dark:bg-gray-900"
     x-tooltip.raw="{{ __('filament-clear-cache::general.clear_cache') }}"
-    style="margin-inline-start: 1rem;border-radius:100%;border:none"
 >
     <x-heroicon-s-trash wire:loading.remove.delay class="w-5 h-5"/>
 
