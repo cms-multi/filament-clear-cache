@@ -1,4 +1,4 @@
-# Filament Clear Cache 
+# Filament Clear Cache
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/cms-multi/filament-clear-cache.svg?style=flat-square)](https://packagist.org/packages/cms-multi/filament-clear-cache)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/cms-multi/filament-clear-cache/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/cms-multi/filament-clear-cache/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -12,10 +12,10 @@ Add a button to easily clear the cache from your filament admin.
 
 #### Compatibility
 
-| Plugin | Status | Filament | PHP |
-|------|----------|----------|--------|
-| [1.x](https://github.com/cms-multi/filament-clear-cache/tree/1.x) | Current | ^1.0     | ^8.0 |
-| [2.x](https://github.com/cms-multi/filament-clear-cache/tree/2.x) | Beta ✨️ | ^2.0     | ^8.1 |
+| Plugin Version | Filament Version | PHP Version |
+|----------------|-----------------|-------------|
+| [1.x](https://github.com/cms-multi/filament-clear-cache/tree/1.x)            | 2.x   | \> 8.0      |
+| [2.x](https://github.com/cms-multi/filament-clear-cache/tree/2.x)            | 3.x             | \> 8.1      |
 
 ## Installation
 
@@ -41,9 +41,9 @@ public function panel(Panel $panel): Panel
 
 ## Customizing
 
-Under the hood `optimize:clear` is called after clicking the button.
+Under the hood `optimize:clear` is called after clicking the trash button.
 
-You may register any custom commands from inside the `boot()` method of your Service Provider: 
+You may register any custom commands from inside the `boot()` method of your Service Provider:
 
 ```php
 use CmsMulti\FilamentClearCache\Facades\FilamentClearCache;
@@ -54,9 +54,13 @@ public function boot()
 }
 ```
 
-Livewire event for incrementing the total number. 
+To increment the button count call Livewire event `clearCacheIncrement`.
 ```php
-$livewire->emit('clearCacheIncrement');
+// Livewire v2
+$this->emit('clearCacheIncrement');
+
+// Livewire v3
+$this->dispatch('clearCacheIncrement')->to(\CmsMulti\FilamentClearCache\Http\Livewire\ClearCache::class);
 ```
 
 ## Testing
