@@ -16,7 +16,7 @@
     backupStaticProperties="false"
 >
     <testsuites>
-        <testsuite name="VendorName Test Suite">
+        <testsuite name="CmsMulti Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
@@ -27,6 +27,15 @@
             <clover outputFile="build/logs/clover.xml"/>
         </report>
     </coverage>
+    <php>
+        <server name="APP_ENV" value="testing"/>
+        <env name="APP_KEY" value="12345678901234567890123456789012"/>
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="MAIL_MAILER" value="log"/>
+    </php>
     <logging>
         <junit outputFile="build/report.junit.xml"/>
     </logging>

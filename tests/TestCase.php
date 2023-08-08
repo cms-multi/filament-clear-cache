@@ -6,6 +6,7 @@ use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
 use CmsMulti\FilamentClearCache\FilamentClearCacheServiceProvider;
 use CmsMulti\FilamentClearCache\Tests\Models\User;
+use CmsMulti\FilamentClearCache\Tests\Provider\AdminPanelProvider;
 use Filament\FilamentServiceProvider;
 use Filament\Notifications\NotificationsServiceProvider;
 use Filament\Support\SupportServiceProvider;
@@ -22,6 +23,13 @@ class TestCase extends Orchestra
         parent::setUp();
 
         $this->setUpDatabase($this->app);
+
+        $this->adminUser = User::create([
+            'name' => 'John',
+            'email' => 'test@test.com',
+        ]);
+
+        $this->actingAs($this->adminUser);
     }
 
     protected function getPackageProviders($app)
@@ -29,11 +37,12 @@ class TestCase extends Orchestra
         $packageProviders = [
             BladeHeroiconsServiceProvider::class,
             BladeIconsServiceProvider::class,
-            FilamentClearCacheServiceProvider::class,
-            FilamentServiceProvider::class,
             LivewireServiceProvider::class,
+            FilamentServiceProvider::class,
             NotificationsServiceProvider::class,
             SupportServiceProvider::class,
+            FilamentClearCacheServiceProvider::class,
+            AdminPanelProvider::class,
         ];
 
         return $packageProviders;
@@ -46,16 +55,13 @@ class TestCase extends Orchestra
      */
     protected function setUpDatabase($app)
     {
+        $app['config']->set('auth.providers.users.model', User::class);
+
         $app['db']->connection()->getSchemaBuilder()->create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email');
             $table->string('name');
         });
-
-        $this->adminUser = User::create([
-            'name' => 'John',
-            'email' => 'test@test.com',
-        ]);
 
         //self::$migration->up();
     }
