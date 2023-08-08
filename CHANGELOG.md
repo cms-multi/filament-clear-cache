@@ -2,6 +2,19 @@
 
 All notable changes to `filament-clear-cache` will be documented in this file.
 
+## 2.0.1 - 2023-08-08
+
+### What's Changed
+
+- Remove custom button styles and fix tests by @howdu in https://github.com/cms-multi/filament-clear-cache/pull/15
+- Better notification message by @martin-ro in https://github.com/cms-multi/filament-clear-cache/pull/16
+
+### New Contributors
+
+- @martin-ro made their first contribution in https://github.com/cms-multi/filament-clear-cache/pull/16
+
+**Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/2.0.0...2.0.1
+
 ## 2.0.0 - 2023-08-01
 
 ### What's Changed
