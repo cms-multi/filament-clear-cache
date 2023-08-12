@@ -2,6 +2,14 @@
 
 All notable changes to `filament-clear-cache` will be documented in this file.
 
+## 2.0.2 - 2023-08-12
+
+### What's Changed
+
+- Fix livewire increment event by @howdu in https://github.com/cms-multi/filament-clear-cache/pull/17
+
+**Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/2.0.1...2.0.2
+
 ## 2.0.1 - 2023-08-08
 
 ### What's Changed
