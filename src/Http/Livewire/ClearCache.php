@@ -8,13 +8,12 @@ use Filament\Notifications\Notification;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class ClearCache extends Component
 {
-    public int $cacheChangesCount = 0;
-
-    protected $listeners = ['clearCacheIncrement' => 'incrementChangesCount'];
+    public int $cache_count = 0;
 
     public bool $visible;
 
@@ -26,7 +25,7 @@ class ClearCache extends Component
         );
 
         if ($changes_count = config('filament-clear-cache.changes_count')) {
-            $this->cacheChangesCount = (int) Cache::get($changes_count, 0);
+            $this->cache_count = (int) Cache::get($changes_count, 0);
         }
 
         $this->visible = $this->getVisibility();
@@ -51,7 +50,7 @@ class ClearCache extends Component
 
     public function clear()
     {
-        $this->cacheChangesCount = 0;
+        $this->cache_count = 0;
 
         Notification::make()
             ->title(__('filament-clear-cache::general.success'))
@@ -61,18 +60,21 @@ class ClearCache extends Component
         ClearCacheJob::dispatchAfterResponse();
 
         // Refresh page to ensure new cache
-        return $this->redirect(request()->header('Referer'));
+        if ($referer = request()->header('Referer')) {
+            return $this->redirect($referer);
+        }
     }
 
+    #[On('clearCacheIncrement')]
     public function incrementChangesCount()
     {
         if (! $changes_count = config('filament-clear-cache.changes_count')) {
             return;
         }
 
-        $this->cacheChangesCount++;
+        $this->cache_count++;
 
-        Cache::put($changes_count, $this->cacheChangesCount);
+        Cache::put($changes_count, $this->cache_count);
     }
 
     public function render(): View
