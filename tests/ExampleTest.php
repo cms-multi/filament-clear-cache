@@ -1,6 +1,7 @@
 <?php
 
 use CmsMulti\FilamentClearCache\Http\Livewire\ClearCache;
+
 use function Pest\Livewire\livewire;
 
 it('throws exception clearing cache without auth', function () {
