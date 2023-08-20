@@ -61,7 +61,7 @@ class ClearCache extends Component
 
         // Refresh page to ensure new cache
         if ($referer = request()->header('Referer')) {
-            return $this->redirect($referer);
+            $this->redirect($referer);
         }
     }
 
