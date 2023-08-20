@@ -30,7 +30,7 @@ class FilamentClearCachePlugin implements Plugin
     {
         Livewire::component(
             'filament-clear-cache::clear-cache-button',
-            config('filament-peek.builderEditor.livewireComponentClass', ClearCache::class)
+            config('filament-clear-cache.livewireComponentClass', ClearCache::class)
         );
 
         $panel->renderHook(

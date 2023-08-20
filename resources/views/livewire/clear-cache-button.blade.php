@@ -3,6 +3,7 @@
     x-show="visible"
     wire:click="clear"
     wire:loading.attr="disabled"
+    wire:key="clear-cache-button"
     type="button"
     class="flex flex-shrink-0 w-10 h-10 rounded-full bg-gray-200 items-center justify-center relative dark:bg-gray-900"
     x-tooltip.raw="{{ __('filament-clear-cache::general.clear_cache') }}"
