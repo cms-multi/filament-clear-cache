@@ -2,6 +2,16 @@
 
 All notable changes to `filament-clear-cache` will be documented in this file.
 
+## 2.0.4 - 2023-10-13
+
+### What's Changed
+
+- Bump actions/checkout from 3 to 4 by @dependabot in https://github.com/cms-multi/filament-clear-cache/pull/18
+- Bump postcss from 8.4.27 to 8.4.31 by @dependabot in https://github.com/cms-multi/filament-clear-cache/pull/20
+- Bump stefanzweifel/git-auto-commit-action from 4 to 5 by @dependabot in https://github.com/cms-multi/filament-clear-cache/pull/19
+
+**Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/2.0.3...2.0.4
+
 ## 2.0.3 - 2023-08-20
 
 **Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/2.0.2...2.0.3
