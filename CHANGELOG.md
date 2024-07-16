@@ -2,6 +2,15 @@
 
 All notable changes to `filament-clear-cache` will be documented in this file.
 
+## 2.0.6 - 2024-07-16
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/cms-multi/filament-clear-cache/pull/28
+* Bump ramsey/composer-install from 2 to 3 by @dependabot in https://github.com/cms-multi/filament-clear-cache/pull/22
+
+**Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/2.0.5...2.0.6
+
 ## 2.0.5 - 2024-05-30
 
 ### What's Changed
