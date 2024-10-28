@@ -2,6 +2,19 @@
 
 All notable changes to `filament-clear-cache` will be documented in this file.
 
+## 2.0.7 - 2024-10-28
+
+### What's Changed
+
+* Update README.md by @davideprevosto in https://github.com/cms-multi/filament-clear-cache/pull/32
+* Fix/version number by @davideprevosto in https://github.com/cms-multi/filament-clear-cache/pull/33
+
+### New Contributors
+
+* @davideprevosto made their first contribution in https://github.com/cms-multi/filament-clear-cache/pull/32
+
+**Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/2.0.6...2.0.7
+
 ## 2.0.6 - 2024-07-16
 
 ### What's Changed
