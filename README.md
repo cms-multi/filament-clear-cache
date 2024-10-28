@@ -25,6 +25,14 @@ You can install the package via composer:
 composer require cms-multi/filament-clear-cache
 ```
 
+## Configuration
+
+You can publish the configuration with:
+
+```shell
+php artisan vendor:publish --provider="CmsMulti\FilamentClearCache\FilamentClearCacheServiceProvider"
+```
+
 ### Registering the plugin
 
 ```php
