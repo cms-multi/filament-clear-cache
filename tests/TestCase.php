@@ -63,6 +63,6 @@ class TestCase extends Orchestra
             $table->string('name');
         });
 
-        //self::$migration->up();
+        // self::$migration->up();
     }
 }
