@@ -3,7 +3,7 @@
 return [
     // Command to run when clearing the cache
     'default_commands' => [
-        'config:clear',
+        'cache:clear',
     ],
 
     // Session name for the indicator count
