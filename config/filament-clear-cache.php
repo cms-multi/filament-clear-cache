@@ -3,12 +3,11 @@
 return [
     // Command to run when clearing the cache
     'default_commands' => [
-        'optimize:clear',
-        'optimize',
+        'config:clear',
     ],
 
     // Session name for the indicator count
-    'changes_count' => 'session_key',
+    'changes_count' => 'filament-clear-cache',
 
     // Livewire component for clear cache button in header.
     'livewireComponentClass' => CmsMulti\FilamentClearCache\Http\Livewire\ClearCache::class,
