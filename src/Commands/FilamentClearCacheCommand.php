@@ -14,19 +14,23 @@ class FilamentClearCacheCommand extends Command
 
     public function handle(): int
     {
-        $default_commands = config('filament-clear-cache.default_commands', []);
+        $defaultCommands = config('filament-clear-cache.default_commands', []);
 
-        foreach ($default_commands as $default_command) {
-            $this->call($default_command);
+        foreach ($defaultCommands as $defaultCommand) {
+            $this->components->task($defaultCommand, fn () => $this->callSilently($defaultCommand) == 0);
         }
 
         $commands = FilamentClearCache::getCommands();
 
         foreach ($commands as $command) {
             if (is_string($command)) {
-                $this->call($command);
+                $this->components->task($command, fn () => $this->callSilently($command) == 0);
             } elseif (is_array($command)) {
-                $this->call($command[0], $command[1]);
+                $this->components->task($command[0], function () use ($command) {
+                    $this->callSilently($command[0], $command[1]);
+
+                    return true;
+                });
             } else {
                 call_user_func($command);
             }
