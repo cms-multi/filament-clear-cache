@@ -2,6 +2,10 @@
 
 All notable changes to `filament-clear-cache` will be documented in this file.
 
+## 2.1.1 - 2025-03-31
+
+**Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/2.1.0...2.1.1
+
 ## 2.1.0 - 2025-03-31
 
 - Updated default commands to clear config only.
