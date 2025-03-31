@@ -2,6 +2,13 @@
 
 All notable changes to `filament-clear-cache` will be documented in this file.
 
+## 2.1.0 - 2025-03-31
+
+- Updated default commands to clear config only.
+- Fixed issue with `optimize` command freezing.
+
+**Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/2.0.8...2.1.0
+
 ## 2.0.8 - 2025-03-09
 
 ### What's Changed
