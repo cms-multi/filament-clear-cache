@@ -16,25 +16,16 @@ use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
-    protected User $adminUser;
-
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->setUpDatabase($this->app);
-
-        $this->adminUser = User::create([
-            'name' => 'John',
-            'email' => 'test@test.com',
-        ]);
-
-        $this->actingAs($this->adminUser);
     }
 
     protected function getPackageProviders($app)
     {
-        $packageProviders = [
+        return [
             BladeHeroiconsServiceProvider::class,
             BladeIconsServiceProvider::class,
             LivewireServiceProvider::class,
@@ -44,8 +35,6 @@ class TestCase extends Orchestra
             FilamentClearCacheServiceProvider::class,
             AdminPanelProvider::class,
         ];
-
-        return $packageProviders;
     }
 
     /**

@@ -14,7 +14,7 @@ class FilamentClearCachePlugin implements Plugin
 
     const ID = 'filament-clear-cache';
 
-    const VERSION = '2.0.8';
+    const VERSION = '3.0.0';
 
     public static function make(): static
     {
