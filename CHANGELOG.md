@@ -2,6 +2,18 @@
 
 All notable changes to `filament-clear-cache` will be documented in this file.
 
+## 3.0.0 - Add support for Filament v4 and v5 - 2026-01-27
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/cms-multi/filament-clear-cache/pull/37
+* Bump aglipanci/laravel-pint-action from 2.5 to 2.6 by @dependabot[bot] in https://github.com/cms-multi/filament-clear-cache/pull/39
+* Bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/cms-multi/filament-clear-cache/pull/44
+* Add support for Filament v4 and v5 by @howdu in https://github.com/cms-multi/filament-clear-cache/pull/45
+* Update blade by @codearachnid in https://github.com/cms-multi/filament-clear-cache/pull/43
+
+**Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/2.1.1...3.0.0
+
 ## 2.1.1 - 2025-03-31
 
 **Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/2.1.0...2.1.1
