@@ -22,17 +22,7 @@ jobs:
       - name: Install dependencies
         env:
           XDEBUG_MODE: off
-        run: |
-          composer require \
-            "laravel/framework:12.*" \
-            "orchestra/testbench:10.*" \
-            "filament/filament:5.*" \
-            "livewire/livewire:^4.0" \
-            "pestphp/pest:^4.0" \
-            "pestphp/pest-plugin-laravel:^4.0" \
-            "pestphp/pest-plugin-livewire:^4.0" \
-            --no-interaction --no-update --no-progress --ansi
-          composer update --prefer-stable --prefer-dist --no-interaction --no-progress --ansi
+        run: composer update --prefer-stable --prefer-dist --no-interaction --no-progress --ansi
 
       - name: Run PHPStan
-        run: ./vendor/bin/phpstan --error-format=github
+        run: ./vendor/bin/phpstan analyse -c phpstan.neon.dist --error-format=github

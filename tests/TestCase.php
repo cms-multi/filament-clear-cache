@@ -2,8 +2,6 @@
 
 namespace CmsMulti\FilamentClearCache\Tests;
 
-use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
-use BladeUI\Icons\BladeIconsServiceProvider;
 use CmsMulti\FilamentClearCache\FilamentClearCacheServiceProvider;
 use CmsMulti\FilamentClearCache\Tests\Models\User;
 use CmsMulti\FilamentClearCache\Tests\Provider\AdminPanelProvider;
@@ -26,8 +24,6 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            BladeHeroiconsServiceProvider::class,
-            BladeIconsServiceProvider::class,
             FilamentServiceProvider::class,
             NotificationsServiceProvider::class,
             SupportServiceProvider::class,
