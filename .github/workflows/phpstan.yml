@@ -8,19 +8,21 @@ on:
 
 jobs:
   phpstan:
-    name: phpstan
     runs-on: ubuntu-latest
+    name: PHPStan Latest
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: 8.5
           coverage: none
 
-      - name: Install composer dependencies
-        uses: ramsey/composer-install@v3
+      - name: Install dependencies
+        env:
+          XDEBUG_MODE: off
+        run: composer update --prefer-stable --prefer-dist --no-interaction --no-progress --ansi
 
       - name: Run PHPStan
-        run: ./vendor/bin/phpstan --error-format=github
+        run: ./vendor/bin/phpstan analyse -c phpstan.neon.dist --error-format=github

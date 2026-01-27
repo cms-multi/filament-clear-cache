@@ -2,8 +2,6 @@
 
 namespace CmsMulti\FilamentClearCache\Tests;
 
-use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
-use BladeUI\Icons\BladeIconsServiceProvider;
 use CmsMulti\FilamentClearCache\FilamentClearCacheServiceProvider;
 use CmsMulti\FilamentClearCache\Tests\Models\User;
 use CmsMulti\FilamentClearCache\Tests\Provider\AdminPanelProvider;
@@ -16,36 +14,23 @@ use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
-    protected User $adminUser;
-
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->setUpDatabase($this->app);
-
-        $this->adminUser = User::create([
-            'name' => 'John',
-            'email' => 'test@test.com',
-        ]);
-
-        $this->actingAs($this->adminUser);
     }
 
     protected function getPackageProviders($app)
     {
-        $packageProviders = [
-            BladeHeroiconsServiceProvider::class,
-            BladeIconsServiceProvider::class,
-            LivewireServiceProvider::class,
+        return [
             FilamentServiceProvider::class,
             NotificationsServiceProvider::class,
             SupportServiceProvider::class,
             FilamentClearCacheServiceProvider::class,
+            LivewireServiceProvider::class,
             AdminPanelProvider::class,
         ];
-
-        return $packageProviders;
     }
 
     /**
@@ -62,6 +47,9 @@ class TestCase extends Orchestra
             $table->string('email');
             $table->string('name');
         });
+
+        // Cache array
+        $app['cache']->set('cache.default', 'array');
 
         // self::$migration->up();
     }

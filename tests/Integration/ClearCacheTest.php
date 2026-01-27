@@ -1,6 +1,7 @@
 <?php
 
 use CmsMulti\FilamentClearCache\Http\Livewire\ClearCache;
+use CmsMulti\FilamentClearCache\Tests\Models\User;
 
 use function Pest\Livewire\livewire;
 
@@ -10,7 +11,10 @@ it('throws exception clearing cache without auth', function () {
 })->throws(Exception::class);
 
 it('can clear cache with auth', function () {
-    $this->actingAs($this->adminUser);
+    $this->actingAs(User::create([
+        'name' => 'John',
+        'email' => 'test@test.com',
+    ]));
 
     livewire(ClearCache::class)
         ->call('clear')
