@@ -3,12 +3,11 @@
 namespace CmsMulti\FilamentClearCache;
 
 use CmsMulti\FilamentClearCache\Http\Livewire\ClearCache;
+use Composer\InstalledVersions;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Illuminate\Support\Facades\Blade;
 use Livewire\Livewire;
-use Composer\InstalledVersions;
-
 
 class FilamentClearCachePlugin implements Plugin
 {
@@ -39,8 +38,8 @@ class FilamentClearCachePlugin implements Plugin
         $panel->renderHook(
             name: 'panels::user-menu.before',
             hook: fn (): string => Blade::render(
-                '@livewire($component)'
-                ,['component' => $component]
+                '@livewire($component)',
+                ['component' => $component]
             ),
         );
     }

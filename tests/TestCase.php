@@ -28,11 +28,11 @@ class TestCase extends Orchestra
         return [
             BladeHeroiconsServiceProvider::class,
             BladeIconsServiceProvider::class,
-            LivewireServiceProvider::class,
             FilamentServiceProvider::class,
             NotificationsServiceProvider::class,
             SupportServiceProvider::class,
             FilamentClearCacheServiceProvider::class,
+            LivewireServiceProvider::class,
             AdminPanelProvider::class,
         ];
     }
@@ -51,6 +51,9 @@ class TestCase extends Orchestra
             $table->string('email');
             $table->string('name');
         });
+
+        // Cache array
+        $app['cache']->set('cache.default', 'array');
 
         // self::$migration->up();
     }

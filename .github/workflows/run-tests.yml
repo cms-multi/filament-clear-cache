@@ -8,43 +8,53 @@ on:
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest]
-        php: [8.1, 8.2, 8.3, 8.4, 8.5]
-        laravel: [10.*, 11.*, 12.*]
-        filament: [4.*, 5.*]
-        testbench: [none]
-        stability: [prefer-stable]
         include:
-          - laravel: 10.*
-            testbench: 8.*
-            php: 8.1
+          - php: 8.2
+            laravel: 11.*
             filament: 4.*
-          - laravel: 11.*
             testbench: 9.*
-            php: 8.2
+            livewire: ^3.0
+            pest: ^3.8
+            pest_plugin_laravel: ^3.1
+            pest_plugin_livewire: ^3.1
+          - php: 8.2
+            laravel: 12.*
             filament: 4.*
-          - laravel: 12.*
             testbench: 10.*
-            php: 8.2
+            livewire: ^3.0
+            pest: ^3.8
+            pest_plugin_laravel: ^3.1
+            pest_plugin_livewire: ^3.1
+          - php: 8.3
+            laravel: 12.*
             filament: 5.*
-          - laravel: 12.*
             testbench: 10.*
-            php: 8.3
+            livewire: ^4.0
+            pest: ^4.0
+            pest_plugin_laravel: ^4.0
+            pest_plugin_livewire: ^4.0
+          - php: 8.4
+            laravel: 12.*
             filament: 5.*
-          - laravel: 12.*
             testbench: 10.*
-            php: 8.4
+            livewire: ^4.0
+            pest: ^4.0
+            pest_plugin_laravel: ^4.0
+            pest_plugin_livewire: ^4.0
+          - php: 8.5
+            laravel: 12.*
             filament: 5.*
-          - laravel: 12.*
             testbench: 10.*
-            php: 8.5
-            filament: 5.*
+            livewire: ^4.0
+            pest: ^4.0
+            pest_plugin_laravel: ^4.0
+            pest_plugin_livewire: ^4.0
 
-    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
+    name: P${{ matrix.php }} - L${{ matrix.laravel }}
 
     steps:
       - name: Checkout code
@@ -57,16 +67,17 @@ jobs:
         uses: actions/cache@v4
         with:
           path: vendor
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-composer-${{ matrix.php }}-${{ matrix.laravel }}-${{ matrix.filament }}-${{ matrix.testbench }}-${{ matrix.livewire }}-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
+            ${{ runner.os }}-composer-${{ matrix.php }}-${{ matrix.laravel }}-${{ matrix.filament }}-${{ matrix.testbench }}-${{ matrix.livewire }}-
             ${{ runner.os }}-composer-
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
-          coverage: none
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo, pcov
+          coverage: pcov
 
       - name: Setup problem matchers
         run: |
@@ -74,13 +85,35 @@ jobs:
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Install dependencies
+        env:
+          XDEBUG_MODE: off
         run: |
-          if [ "${{ matrix.testbench }}" != "none" ]; then \
-            composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "filament/filament:${{ matrix.filament }}" --no-interaction --no-update --no-progress --ansi; \
-          else \
-            composer require "laravel/framework:${{ matrix.laravel }}" "filament/filament:${{ matrix.filament }}" --no-interaction --no-update --no-progress --ansi; \
-          fi
-          composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress --ansi
+          composer require \
+            "laravel/framework:${{ matrix.laravel }}" \
+            "orchestra/testbench:${{ matrix.testbench }}" \
+            "filament/filament:${{ matrix.filament }}" \
+            "livewire/livewire:${{ matrix.livewire }}" \
+            "pestphp/pest:${{ matrix.pest }}" \
+            "pestphp/pest-plugin-laravel:${{ matrix.pest_plugin_laravel }}" \
+            "pestphp/pest-plugin-livewire:${{ matrix.pest_plugin_livewire }}" \
+            --no-interaction --no-update --no-progress --ansi
+          composer update --prefer-stable --prefer-dist --no-interaction --no-progress --ansi
 
-      - name: Execute tests
-        run: vendor/bin/pest
+      - name: Prepare coverage directory
+        run: mkdir -p build/logs
+
+      - name: Execute tests with coverage
+        run: vendor/bin/pest --coverage --coverage-clover build/logs/clover.xml
+
+      - name: Sanitize artifact name
+        run: |
+          LARAVEL_SAFE=$(echo "${{ matrix.laravel }}" | tr '*' 'x')
+          FILAMENT_SAFE=$(echo "${{ matrix.filament }}" | tr '*' 'x')
+          echo "ARTIFACT_NAME=coverage-${{ matrix.php }}-${LARAVEL_SAFE}-${FILAMENT_SAFE}" >> $GITHUB_ENV
+
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: build/logs/clover.xml
+          if-no-files-found: error
