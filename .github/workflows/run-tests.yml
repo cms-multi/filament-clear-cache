@@ -112,7 +112,7 @@ jobs:
           echo "ARTIFACT_NAME=coverage-${{ matrix.php }}-${LARAVEL_SAFE}-${FILAMENT_SAFE}" >> $GITHUB_ENV
 
       - name: Upload coverage artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: ${{ env.ARTIFACT_NAME }}
           path: build/logs/clover.xml
