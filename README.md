@@ -49,6 +49,26 @@ public function panel(Panel $panel): Panel
 }
 ```
 
+### Conditionally enabling the plugin
+
+You can restrict the plugin to specific environments using the `enabled()` method:
+
+```php
+use CmsMulti\FilamentClearCache\FilamentClearCachePlugin;
+use Illuminate\Support\Facades\App;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        ->plugins([
+            FilamentClearCachePlugin::make()
+                ->enabled(App::environment(['local', 'staging'])),
+        ])
+}
+```
+
+When disabled, the clear cache button will not be rendered.
+
 ## Customizing
 
 Under the hood `optimize:clear` is called after clicking the trash button.
