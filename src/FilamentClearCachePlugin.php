@@ -17,6 +17,8 @@ class FilamentClearCachePlugin implements Plugin
 
     const VERSION = '3.0.0';
 
+    protected bool $enabled = true;
+
     public static function make(): static
     {
         return app(static::class);
@@ -27,8 +29,23 @@ class FilamentClearCachePlugin implements Plugin
         return static::ID;
     }
 
+    public function enabled(bool $enabled = true): static
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    public function isEnabled(): bool
+    {
+        return $this->enabled;
+    }
+
     public function register(Panel $panel): void
     {
+        if (! $this->enabled) {
+            return;
+        }
         $component = config('filament-clear-cache.livewireComponentClass', ClearCache::class);
 
         if (self::isLivewireV3()) {
@@ -46,6 +63,9 @@ class FilamentClearCachePlugin implements Plugin
 
     public function boot(Panel $panel): void
     {
+        if (! $this->enabled) {
+            return;
+        }
         if (! self::isLivewireV3()) {
             Livewire::addNamespace(
                 namespace: 'filament-clear-cache',
