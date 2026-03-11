@@ -23,4 +23,3 @@ it('no-ops during boot when disabled', function () {
         ->boot($panel))
         ->not->toThrow(Throwable::class);
 });
-

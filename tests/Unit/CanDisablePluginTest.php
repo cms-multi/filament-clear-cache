@@ -36,4 +36,3 @@ it('transitions state with disabled', function () {
     $subject->disabled(false);
     expect($subject->isEnabled())->toBeTrue();
 });
-

@@ -2,8 +2,10 @@
 
 namespace CmsMulti\FilamentClearCache\Concerns;
 
+use Filament\Contracts\Plugin;
+
 /**
- * @mixin \Filament\Contracts\Plugin
+ * @mixin Plugin
  */
 trait CanDisablePlugin
 {
