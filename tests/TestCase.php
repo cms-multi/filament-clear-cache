@@ -9,6 +9,7 @@ use Filament\FilamentServiceProvider;
 use Filament\Notifications\NotificationsServiceProvider;
 use Filament\Support\SupportServiceProvider;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Foundation\Application;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -36,7 +37,7 @@ class TestCase extends Orchestra
     /**
      * Set up the database.
      *
-     * @param  \Illuminate\Foundation\Application  $app
+     * @param  Application  $app
      */
     protected function setUpDatabase($app)
     {
