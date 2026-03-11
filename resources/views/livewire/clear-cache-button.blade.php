@@ -3,7 +3,7 @@
         icon="heroicon-o-trash"
         color="gray"
         class="flex-shrink-0 w-10 h-10 rounded-full"
-        tooltip="Clear Cache"
+        :tooltip="__('filament-clear-cache::general.clear_cache')"
         wire:click="clear"
         wire:loading.attr="disabled"
         x-data="{ visible: true }"
