@@ -2,6 +2,23 @@
 
 All notable changes to `filament-clear-cache` will be documented in this file.
 
+## 3.0.1 - 2026-03-11
+
+### What's Changed
+
+* Add German translation and use translation key for tooltip by @grafst in https://github.com/cms-multi/filament-clear-cache/pull/50
+* Add enabled() method to plugin for conditional activation by @howdu in https://github.com/cms-multi/filament-clear-cache/pull/51
+* Bump stefanzweifel/git-auto-commit-action from 5 to 7 by @dependabot[bot] in https://github.com/cms-multi/filament-clear-cache/pull/41
+* Bump actions/checkout from 4 to 6 by @dependabot[bot] in https://github.com/cms-multi/filament-clear-cache/pull/42
+* Bump actions/cache from 4 to 5 by @dependabot[bot] in https://github.com/cms-multi/filament-clear-cache/pull/46
+* Bump actions/upload-artifact from 4 to 7 by @dependabot[bot] in https://github.com/cms-multi/filament-clear-cache/pull/48
+
+### New Contributors
+
+* @grafst made their first contribution in https://github.com/cms-multi/filament-clear-cache/pull/50
+
+**Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/3.0.0...3.0.1
+
 ## 3.0.0 - Add support for Filament v4 and v5 - 2026-01-27
 
 ### What's Changed
