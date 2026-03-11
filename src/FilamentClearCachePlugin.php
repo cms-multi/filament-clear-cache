@@ -2,6 +2,7 @@
 
 namespace CmsMulti\FilamentClearCache;
 
+use CmsMulti\FilamentClearCache\Concerns\CanDisablePlugin;
 use CmsMulti\FilamentClearCache\Http\Livewire\ClearCache;
 use Composer\InstalledVersions;
 use Filament\Contracts\Plugin;
@@ -11,13 +12,13 @@ use Livewire\Livewire;
 
 class FilamentClearCachePlugin implements Plugin
 {
+    use CanDisablePlugin;
+
     const PACKAGE = 'filament-clear-cache';
 
     const ID = 'filament-clear-cache';
 
-    const VERSION = '3.0.0';
-
-    protected bool $enabled = true;
+    const VERSION = '3.0.1';
 
     public static function make(): static
     {
@@ -29,23 +30,12 @@ class FilamentClearCachePlugin implements Plugin
         return static::ID;
     }
 
-    public function enabled(bool $enabled = true): static
-    {
-        $this->enabled = $enabled;
-
-        return $this;
-    }
-
-    public function isEnabled(): bool
-    {
-        return $this->enabled;
-    }
-
     public function register(Panel $panel): void
     {
-        if (! $this->enabled) {
+        if (! $this->isEnabled()) {
             return;
         }
+
         $component = config('filament-clear-cache.livewireComponentClass', ClearCache::class);
 
         if (self::isLivewireV3()) {
@@ -63,9 +53,10 @@ class FilamentClearCachePlugin implements Plugin
 
     public function boot(Panel $panel): void
     {
-        if (! $this->enabled) {
+        if (! $this->isEnabled()) {
             return;
         }
+
         if (! self::isLivewireV3()) {
             Livewire::addNamespace(
                 namespace: 'filament-clear-cache',
