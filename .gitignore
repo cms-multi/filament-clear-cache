@@ -12,3 +12,4 @@ phpunit.xml
 phpstan.neon
 testbench.yaml
 vendor
+.claude/settings.local.json
