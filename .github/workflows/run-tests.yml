@@ -53,14 +53,6 @@ jobs:
             pest: ^4.0
             pest_plugin_laravel: ^4.0
             pest_plugin_livewire: ^4.0
-          - php: 8.2
-            laravel: 13.*
-            filament: 4.*
-            testbench: 11.*
-            livewire: ^3.0
-            pest: ^3.8
-            pest_plugin_laravel: ^3.1
-            pest_plugin_livewire: ^3.1
           - php: 8.3
             laravel: 13.*
             filament: 5.*

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(composer validate *)",
+      "Bash(python3 *)"
+    ]
+  }
+}
