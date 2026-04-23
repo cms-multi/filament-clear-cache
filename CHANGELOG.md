@@ -2,6 +2,19 @@
 
 All notable changes to `filament-clear-cache` will be documented in this file.
 
+## 3.0.2 - 2026-04-23
+
+### What's Changed
+
+* Laravel 13 support by @eleftrik in https://github.com/cms-multi/filament-clear-cache/pull/54
+* Bump dependabot/fetch-metadata from 2.5.0 to 3.1.0 by @dependabot[bot] in https://github.com/cms-multi/filament-clear-cache/pull/53
+
+### New Contributors
+
+* @eleftrik made their first contribution in https://github.com/cms-multi/filament-clear-cache/pull/54
+
+**Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/3.0.1...3.0.2
+
 ## 3.0.1 - 2026-03-11
 
 ### What's Changed
