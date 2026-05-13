@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 class FilamentClearCachePluginTestSimplePage extends SimplePage {}
 
 it('does not register panel hooks when disabled', function () {
-    $panel = \Mockery::mock(Panel::class);
+    $panel = Mockery::mock(Panel::class);
     $panel->shouldNotReceive('renderHook');
 
     FilamentClearCachePlugin::make()
@@ -50,7 +50,7 @@ it('can render the clear cache button on simple pages when enabled', function ()
 
     Blade::shouldReceive('render')
         ->once()
-        ->with('@livewire($component)', \Mockery::type('array'))
+        ->with('@livewire($component)', Mockery::type('array'))
         ->andReturn('clear-cache-button');
 
     expect($hook())->toBe('clear-cache-button');
@@ -64,14 +64,14 @@ it('renders the clear cache button on non-simple pages', function () {
 
     Blade::shouldReceive('render')
         ->once()
-        ->with('@livewire($component)', \Mockery::type('array'))
+        ->with('@livewire($component)', Mockery::type('array'))
         ->andReturn('clear-cache-button');
 
     expect($hook())->toBe('clear-cache-button');
 });
 
 it('no-ops during boot when disabled', function () {
-    $panel = \Mockery::mock(Panel::class);
+    $panel = Mockery::mock(Panel::class);
 
     expect(fn () => FilamentClearCachePlugin::make()
         ->enabled(false)
@@ -82,11 +82,11 @@ it('no-ops during boot when disabled', function () {
 function captureClearCacheRenderHook(?FilamentClearCachePlugin $plugin = null): Closure
 {
     $hook = null;
-    $panel = \Mockery::mock(Panel::class);
+    $panel = Mockery::mock(Panel::class);
     $panel
         ->shouldReceive('renderHook')
         ->once()
-        ->with('panels::user-menu.before', \Mockery::on(function (Closure $renderHook) use (&$hook): bool {
+        ->with('panels::user-menu.before', Mockery::on(function (Closure $renderHook) use (&$hook): bool {
             $hook = $renderHook;
 
             return true;
