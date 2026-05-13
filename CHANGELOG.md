@@ -2,6 +2,14 @@
 
 All notable changes to `filament-clear-cache` will be documented in this file.
 
+## 3.0.3 - 2026-05-13
+
+### What's Changed
+
+* Hide clear cache button on simple pages by @howdu in https://github.com/cms-multi/filament-clear-cache/pull/55
+
+**Full Changelog**: https://github.com/cms-multi/filament-clear-cache/compare/3.0.2...3.0.3
+
 ## 3.0.2 - 2026-04-23
 
 ### What's Changed
