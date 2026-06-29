@@ -88,7 +88,7 @@ jobs:
         run: composer validate --strict
 
       - name: Cache Composer dependencies
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: vendor
           key: ${{ runner.os }}-composer-${{ matrix.php }}-${{ matrix.laravel }}-${{ matrix.filament }}-${{ matrix.testbench }}-${{ matrix.livewire }}-${{ hashFiles('**/composer.lock') }}
